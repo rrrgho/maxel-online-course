@@ -23,6 +23,7 @@
                         <table class="table table-bordered" id="special-class-subscribers">
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Duration</th>
@@ -65,7 +66,12 @@
                 processing: true,
                 serverSide: true,
                 ajax: '{{ route('admin-subscriber-basic-class-datatable') }}', // memanggil route yang menampilkan data json
-                columns: [{
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id'
+                    },
+                    {
                         data: 'user_relation.name',
                         name: 'user_relation.name'
                     },
