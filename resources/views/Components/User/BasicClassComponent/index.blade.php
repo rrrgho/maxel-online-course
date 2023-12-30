@@ -87,23 +87,36 @@
             </section>
             <!-- Plan section end -->
             <div class="card-body">
-                <div class="row justify-between">
-                    @foreach ($data as $class)
-                        <div class="col-3 mt-4">
-                            <a class="link-opacity-10 text-dark" href="{{ url('/user/class/' . $class->id) }}">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="{{ asset('assets/uploaded/images/classes/' . $class->image) }}"
-                                        height="300px" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $class->title }}</h5>
-                                        {{-- <p class="card-text">{!! $class->description !!}</p> --}}
-                                        {{-- <a href="#" class="btn btn-block {{ $class->your_class ? 'btn-success' : 'btn-warning' }} mt-3">{{ $class->your_class ? 'Go to Class' : 'Buy Class' }}</a> --}}
+                @if (count($data) > 0)
+                    <div class="row justify-between">
+                        @foreach ($data as $class)
+                            <div class="col-3 mt-4">
+                                <a class="link-opacity-10 text-dark" href="{{ url('/user/class/' . $class->id) }}">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="{{ asset('assets/uploaded/images/classes/' . $class->image) }}"
+                                            height="300px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $class->title }}</h5>
+                                            {{-- <p class="card-text">{!! $class->description !!}</p> --}}
+                                            {{-- <a href="#" class="btn btn-block {{ $class->your_class ? 'btn-success' : 'btn-warning' }} mt-3">{{ $class->your_class ? 'Go to Class' : 'Buy Class' }}</a> --}}
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-warning" role="alert">
+                                <h4 class="alert-heading">Opps, Sorry !</h4>
+                                <p>Aww yeah, looks like admin has not been finished preparing classes !</p>
+                                <hr>
+                                <p class="mb-0">No Class available.</p>
+                            </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

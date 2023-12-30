@@ -73,7 +73,7 @@
         </div>
 
         <!-- Lifetime Form -->
-        <section class="solution-style-1">
+        {{-- <section class="solution-style-1">
             <div class="custom-container container">
                 <div class="row gy-4">
                     <div class="col-lg-6">
@@ -151,7 +151,6 @@
                                 <img src="{{ asset('assets/images/image-preview.png') }}" id="preview"
                                     alt="Preview Image">
                                 <br />
-                                {{-- <small class="text-info">We recomend size of image 908 * 1064</small> --}}
                                 <div class="form-input">
                                     <label for="" class="form-label">Payment Evidence</label>
                                     <div class="mb-3">
@@ -171,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- Solution section end -->
     </div>
 </section>
