@@ -73,7 +73,7 @@
         </div>
 
         <!-- Lifetime Form -->
-        {{-- <section class="solution-style-1">
+        <section class="solution-style-1">
             <div class="custom-container container">
                 <div class="row gy-4">
                     <div class="col-lg-6">
@@ -170,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        </section> --}}
+        </section>
         <!-- Solution section end -->
     </div>
 </section>
