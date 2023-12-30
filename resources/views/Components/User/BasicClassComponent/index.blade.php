@@ -11,7 +11,7 @@
         @endif
 
 
-        @if (Auth::user()->basic_user->expired_date)
+        @if (Auth::user()->basic_user)
             <!-- Banner section start -->
             <section class="banner-style-3">
                 <div class="container">
