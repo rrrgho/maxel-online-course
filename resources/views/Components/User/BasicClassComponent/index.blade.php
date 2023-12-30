@@ -10,20 +10,23 @@
             </div>
         @endif
 
-        <!-- Banner section start -->
-        <section class="banner-style-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="banner-box">
-                            <div class="row">
-                                <div class="col-lg-10">
-                                    <div class="banner-content">
-                                        <h3>Thank you for becoming our Subscriber !</h3>
-                                        <p class="txt-light">
-                                            Your subscribtion is active and will end at {{Auth::user()->basic_user->expired_date}}
-                                        </p>
-                                        {{-- <ul class="banner-list">
+
+        @if (Auth::user()->basic_user->expired_date)
+            <!-- Banner section start -->
+            <section class="banner-style-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="banner-box">
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <div class="banner-content">
+                                            <h3>Thank you for becoming our Subscriber !</h3>
+                                            <p class="txt-light">
+                                                Your subscribtion is active and will end at
+                                                {{ Auth::user()->basic_user->expired_date }}
+                                            </p>
+                                            {{-- <ul class="banner-list">
                                             <li>
                                                 <div class="list-box">
                                                     <svg>
@@ -52,17 +55,19 @@
                                                 <a href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
                                             </li>
                                         </ul> --}}
-                                        <img class="img-fluid right-image" src="../assets/images/job/banner.webp"
-                                            alt="vector" />
+                                            <img class="img-fluid right-image" src="../assets/images/job/banner.webp"
+                                                alt="vector" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Banner section end -->
+            </section>
+            <!-- Banner section end -->
+        @endif
+
 
         <div class="card mt-5">
             <!-- Plan section start -->
