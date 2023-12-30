@@ -64,7 +64,7 @@
             $('#special-class-subscribers').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('admin-subscriber-basic-class-datatable') !!}', // memanggil route yang menampilkan data json
+                ajax: '{{ route('admin-subscriber-basic-class-datatable') }}', // memanggil route yang menampilkan data json
                 columns: [{
                         data: 'user_relation.name',
                         name: 'user_relation.name'
