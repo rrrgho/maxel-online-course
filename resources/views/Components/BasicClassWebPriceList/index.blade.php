@@ -42,20 +42,17 @@
                                                 </div>
                                                 <p>From its medieval origins to the digital era, learn everything there.
                                                 </p>
-                                                <ul class="plan-list">
-                                                    <li>
-                                                        <i class="fa-solid fa-check"></i>
-                                                        <p class="txt-light">Get started with <span>messaging</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa-solid fa-check"></i>
-                                                        <p class="txt-light">Flexible <span>team meetings</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa-solid fa-check"></i>
-                                                        <p class="txt-light"><span>5 TB</span> cloud storage</p>
-                                                    </li>
-                                                </ul>
+                                                @if (count($item->feature) > 0)
+                                                    <ul class="plan-list">
+                                                        @foreach ($item->feature as $feature)
+                                                            <li>
+                                                                <i class="fa-solid {{$feature->status ? 'fa-check' : 'fa-times text-danger'}}"></i>
+                                                                <p class="txt-light">{{$feature->label}}</span>
+                                                                </p>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
                                                 <a href="{{ route('user-signup') }}" class="btn btn-light-primary"
                                                     onclick="setBasicClassDuration({{ $item->duration }})">
                                                     Choose Plan

@@ -100,9 +100,9 @@
 
 
                                 <div class="form-input">
-                                    <select name="type" required class="form-select form-select-lg mb-3"
+                                    <select required name="type" required class="form-select form-select-lg mb-3"
                                         aria-label="Large select example">
-                                        <option selected>Select Type of Class</option>
+                                        <option value="">Select Type of Class</option>
                                         <option value="1">Special Class</option>
                                         <option value="2">Basic Class</option>
                                     </select>
@@ -110,7 +110,7 @@
                                 <div class="form-input">
                                     <select name="category_id" required class="form-select form-select-lg mb-3"
                                         aria-label="Large select example">
-                                        <option selected>Select Class Category</option>
+                                        <option value="">Select Class Category</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach

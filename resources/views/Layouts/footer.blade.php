@@ -1,5 +1,5 @@
 <!-- Footer section start -->
-<footer class=" footer-style-1 footer-style-2" style="background-color: #FF4E7E !important;">
+<footer class="footer-style-1 mt-5 footer-style-2">
     <div class="container">
         <div class="footer-top-content">
             <div class="row gy-md-4 gy-3">
@@ -12,9 +12,9 @@
                 <div class="col-xl-4">
                     <div class="footer-contact">
                         <a href="index.html">
-                            <img src="{{asset('assets/images/logo/logo-white.png')}}" alt="logo" />
+                            <img src="{{ asset('assets/images/logo/logo-white.png') }}" alt="logo" />
                         </a>
-                        <p>
+                        {{-- <p>
                             Partner with us for innovative IT solutions that drive your success.
                         </p>
                         <ul>
@@ -28,80 +28,82 @@
                                 <a href="https://www.instagram.com/doiscode/"><i class="fa-brands fa-twitter"></i></a>
                             </li>
                             <li>
-                                {{-- <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
                             </li>
                             <li>
-                                <a href="https://in.pinterest.com/"><i class="fa-brands fa-pinterest"></i></a> --}}
+                                <a href="https://in.pinterest.com/"><i class="fa-brands fa-pinterest"></i></a>
+                            </li>
+                        </ul> --}}
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-4 col-6">
+                    <div class="footer-content">
+                        <h3>Social Media</h3>
+                        <ul class="footer-links">
+                            <li>
+                                <a href="https://instagram.com/maxel.course">
+                                    <i class="fa-brands fa-instagram"></i>
+                                    <span> @maxel.course </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>08123456789</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-4 col-6">
                     <div class="footer-content">
-                        <h3>Quick Link</h3>
+                        <h3>Kategori Kelas</h3>
                         <ul class="footer-links">
                             <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>Home </span>
+                                <a href="{{ url('/basic-class') }}">
+                                    {{-- <i class="fa-solid fa-chevron-right"></i> --}}
+                                    <span>Basic Class</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>About Us</span>
+                                <a href="{{ url('/special-class') }}">
+                                    {{-- <i class="fa-solid fa-chevron-right"></i> --}}
+                                    <span>Special Class</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>Products</span>
+                                <a href="{{ url('/bootcamp') }}">
+                                    {{-- <i class="fa-solid fa-chevron-right"></i> --}}
+                                    <span>Bootcamp</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                {{-- <div class="col-xl-2 col-md-4 col-6">
+                <div class="col-xl-4 col-md-4">
                     <div class="footer-content">
-                        <h3>Community</h3>
+                        <h3>Bantuan & Panduan</h3>
                         <ul class="footer-links">
                             <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>Career</span>
+                                <a href="{{ url('/basic-class') }}">
+                                    {{-- <i class="fa-solid fa-chevron-right"></i> --}}
+                                    <span>Syarat & Ketentuan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>Leadership</span>
+                                <a href="{{ url('/special-class') }}">
+                                    {{-- <i class="fa-solid fa-chevron-right"></i> --}}
+                                    <span>Bantuan Penggunaan</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>Strategy</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>Services</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    <span>History</span>
+                                <a href="{{ url('/bootcamp') }}">
+                                    {{-- <i class="fa-solid fa-chevron-right"></i> --}}
+                                    <span>Pusat Bantuan</span>
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </div> --}}
-                <div class="col-xl-4 col-md-4">
-                    <div class="footer-content">
-                        <h3>Contact Info</h3>
-                        <ul class="footer-location">
+                        {{-- <ul class="footer-location">
                             <li>
                                 <div class="d-flex">
                                     <div class="footer-icon">
@@ -142,7 +144,7 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </div>
@@ -152,9 +154,13 @@
         <div class="sub-footer">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p>© Copyright 2023. All Rights Reserved by Doiscode Technology, PT</p>
+                    <p>&copy; Copyright <span id="copyright">
+                            <script>
+                                document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                            </script>
+                        </span>. Maxel Course</p>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <ul class="footer-links sub-footer-links">
                         <li>
                             <a href="#">Terms</a>
@@ -166,7 +172,7 @@
                             <a href="#">Support</a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

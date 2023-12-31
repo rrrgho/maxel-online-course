@@ -8,6 +8,7 @@ use App\Models\ClassCategory;
 use App\Models\ClassModel;
 use App\Models\ClassLeasson;
 use App\Models\BasicClassPriceList;
+use App\Models\BasicClassPriceListFeature;
 use Illuminate\Support\Str;
 use Auth;
 use Carbon\Carbon;
@@ -104,7 +105,9 @@ class AdminController extends Controller
             $file = $request->file('image');
             $random = Str::random(40) . '|' . Carbon::now()->toDateString() . '|' . $file->getClientOriginalName();
             $file->move(public_path('assets/uploaded/images/classes/'), $random);
+            $lastIndex = ClassModel::latest('id')->first()->id ?? 0;
             ClassModel::create([
+                'id' => $lastIndex + 1,
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
                 'description' => $request->description,
@@ -157,7 +160,22 @@ class AdminController extends Controller
             return redirect(route('admin-basic-class-pricelist'))->with('success', 'Success updated Price List');
         }
         $data = BasicClassPriceList::orderBy('id', 'ASC')->get();
-        return view('Admin.Master.BasicClassPriceList.index', compact('data'));
+        $features = BasicClassPriceListFeature::all();
+        return view('Admin.Master.BasicClassPriceList.index', compact('data', 'features'));
+    }
+
+    public function basicClassPriceListFeatureAdd(Request $request){
+        BasicClassPriceListFeature::create([
+            'pricelist_id' => $request->pricelist_id,
+            'label' => $request->label,
+            'status' => $request->status ? true : false,
+        ]);
+        return redirect(route('admin-basic-class-pricelist'))->with('success', 'Success add Feature');
+    }
+
+    public function basicClassPriceListFeatureDelete($id){
+        BasicClassPriceListFeature::find($id)->delete();
+        return redirect(route('admin-basic-class-pricelist'))->with('success', 'Success deleted Feature');
     }
 
     public function classCategory(Request $request)

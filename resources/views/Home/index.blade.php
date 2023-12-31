@@ -12,7 +12,7 @@
     @component('Components.BasicClassWebPriceList.index', compact('pricelist'))
     @endcomponent
 
-    @component('Components.BasicClassList.index', compact('data'))
+    @component('Components.BasicClassListWebHome.index', compact('data'))
         @endcomponent
     @component('Components.CustomerFeedback.index')
     @endcomponent

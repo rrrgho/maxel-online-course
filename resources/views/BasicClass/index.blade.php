@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="mt-5">
-        @component('Components.BasicClassList.index', compact('data'))
+        @component('Components.BasicClassListWeb.index', compact('data'))
         @endcomponent
     </div>
     @component('Components.CustomerFeedback.index')

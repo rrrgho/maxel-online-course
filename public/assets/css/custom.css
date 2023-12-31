@@ -9,6 +9,23 @@
     background-color: #ff4e7e !important;
 }
 
+.text-primary {
+    color: #144d8c !important;
+}
+
+.bg-primary {
+    background: #144d8c !important;
+}
+
+.footer-style-2 {
+    background: #144d8c !important;
+}
+
 .btn-primary {
-    background-color: #fc8803 !important;
+    background: #144d8c !important;
+    border: none !important;
+}
+
+.collection-box {
+    background: #fff !important;
 }

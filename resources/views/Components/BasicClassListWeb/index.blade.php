@@ -4,20 +4,20 @@
     <div class="container">
         <div class="title-style-4 justify-content-center row g-4">
             <div class="col-md-6 text-center">
-                <h2>Materi Kelas Di Maxel</h2>
-                <p>Here's four easily steps to create and sell your NFTs in Metovo Market</p>
+                <h2>Materi Kelas Basic Di Maxel</h2>
+                <p>Berlangganan sekali, akses selamanya!</p>
                 <img src="../assets/images/nft/line.webp" alt="line" class="img-fluid">
             </div>
         </div>
 
         @if (count($data) > 0)
             <div
-                class="collection-main-wrapper row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+                class="collection-main-wrapper row row-cols-lg-5 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
                 @foreach ($data as $item)
                     <div class="col items">
                         <div class="collection-box">
                             <div class="collection-image">
-                                <a href="#!">
+                                <a href="{{url('class/'.$item->id)}}">
                                     <img src="{{ asset('assets/uploaded/images/classes/' . $item->image) }}"
                                         alt="NFT" class="img-fluid product-image">
                                 </a>
@@ -58,15 +58,8 @@
                                 </div>
 
                                 <h6 class="collection-title">
-                                    <a href="#">{{ $item->title }}</a>
+                                    <a href="{{url('class/'.$item->id)}}" class="text-primary">{{ $item->title }}</a>
                                 </h6>
-                                {{-- <div class="etherum-title">
-                            <div>
-                                <img src="../assets/images/nft/collection/diamond.webp" alt="ethereum">
-                                <p>1.45 ETH</p>
-                            </div>
-                            <a href="#">Buy Now</a>
-                        </div> --}}
                             </div>
                         </div>
                     </div>

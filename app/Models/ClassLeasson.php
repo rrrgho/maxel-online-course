@@ -18,6 +18,7 @@ class ClassLeasson extends Model
     }
 
     public function getCompletedAttribute(){
+        if(!Auth::check()) return NULL;
         return $this->leasson_complete_relation()->where('user_id', Auth::user()->id)->first() ?? NULL;
     }
 }

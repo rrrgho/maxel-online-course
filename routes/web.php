@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\WebController;
 use App\Http\Controllers\Web\WebBasicClassController;
+use App\Http\Controllers\Web\WebSpecialClassController;
 use App\Http\Controllers\User\ClassController;
 use App\Http\Controllers\User\UserAuthController;
 use App\Http\Controllers\Admin\AdminAuthController;
@@ -21,7 +22,9 @@ use App\Http\Controllers\Admin\AdminSubscriberController;
 */
 
 Route::get('/', [WebController::class, 'index']);
-Route::get('basic-class', [WebBasicClassController::class, 'index']);
+Route::get('basic-class', [WebBasicClassController::class, 'index'])->name('web-basic-class');
+Route::get('class/{id}', [WebController::class, 'classDetail']);
+Route::get('special-class', [WebSpecialClassController::class, 'index'])->name('web-special-class');
 
 Route::get('/user/login', [UserAuthController::class, 'login'])->name('login-user');
 Route::get('/user/signup', [UserAuthController::class, 'signup'])->name('user-signup');
@@ -62,6 +65,8 @@ Route::middleware('auth:teachers')->group(function () {
 
             Route::get('basic-class/pricelist', [AdminController::class, 'basicClassPriceList'])->name('admin-basic-class-pricelist');
             Route::post('basic-class/pricelist', [AdminController::class, 'basicClassPriceList']);
+            Route::post('basic-class/pricelist/feature-add', [AdminController::class, 'basicClassPriceListFeatureAdd'])->name('admin-basic-class-pricelist-feature-add');
+            Route::get('basic-class/pricelist/feature-delete/{id}', [AdminController::class, 'basicClassPriceListFeatureDelete']);
         });
 
         Route::get('classes', [AdminController::class, 'classes'])->name('admin-classes');

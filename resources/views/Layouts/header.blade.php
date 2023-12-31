@@ -35,7 +35,7 @@
             @if (!Auth::user())
                 {{-- <a href="{{route('login-user')}}" --}}
                 <a href="#"
-                    class="btn btn-success d-none d-md-block">Sign in
+                    class="btn btn-primary d-none d-md-block">Sign in
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
             @else

@@ -5,7 +5,7 @@
              <div class="col-sm-12">
                  <div class="title-style-1 text-center">
                      <h5 class="txt-success">Customer Feedback</h5>
-                     <h2>What our valuable customer say about us</h2>
+                     <h2>Apa kata customer tentang Maxel</h2>
                      <p>We Are Glad To Be A Reason For The Smiles We Put On Our Client's Faces.</p>
                  </div>
              </div>
