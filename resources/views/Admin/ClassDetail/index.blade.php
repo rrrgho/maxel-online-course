@@ -11,10 +11,26 @@
     </style>
     <div class="row justify-content-end">
         <div class="col-sm-12 col-md-3">
-            <button class="btn btn-warning w-100">Add Leassons</button>
+            <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#addLeassonModal">Add
+                Leassons</button>
         </div>
         <div class="col-sm-12 col-md-3">
             <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#editClassModal">Edit Class</button>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+            @if (Session::has('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ Session::get('error') }}
+                </div>
+            @endif
         </div>
     </div>
     @component('Components.User.ClassDetailComponent.index', ['data' => $data, 'admin' => true])
@@ -23,7 +39,8 @@
     <div class="modal fade" id="editClassModal" tabindex="-1" aria-labelledby="editClassModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <form action="{{ route('admin-add-class') }}" method="POST" enctype="multipart/form-data"> @csrf
+                <form action="{{ route('admin-edit-class') }}" method="POST" enctype="multipart/form-data"> @csrf
+                    <input type="hidden" name="id" value="{{ $data->id }}">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="editClassModalLabel">Edit Class</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -35,9 +52,9 @@
                                     alt="Preview Image">
                                 <div class="form-input">
                                     <div class="mb-3">
-                                        <input required name="image" onchange="previewImage(event)"
-                                            accept="image/png, image/jpeg" class="form-control" type="file"
-                                            id="formFile">
+                                        <input name="image" onchange="previewImage(event)"
+                                            accept="image/png, image/jpeg, image/jpg, image/webp" class="form-control"
+                                            type="file" id="formFile">
                                     </div>
                                 </div>
                             </div>
@@ -101,10 +118,59 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="addLeassonModal" tabindex="-1" aria-labelledby="addLeassonModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <form action="{{ route('admin-leasson-add') }}" method="POST"> @csrf
+                <input type="hidden" name="class_id" value="{{$data->id}}">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addLeassonModalLabel">Add Leasson for class {{ $data->title }}
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-input">
+                            <input type="text" name="title" class="form-control" autocomplete="off"
+                                placeholder="Title" required>
+                        </div>
+                        <div class="form-input mt-4 mb-4">
+                            <input type="text" name="subtitle" class="form-control" autocomplete="off"
+                                placeholder="Sub title" required>
+
+                        </div>
+                        <div class="form-input">
+                            <textarea id="description2" name="description">
+                                    
+                                </textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         $(function() {
             ClassicEditor
                 .create(document.querySelector('#description'), {
+                    removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption',
+                        'ImageStyle', 'ImageToolbar', 'ImageUpload'
+                    ],
+                    mediaEmbed: {
+                        previewsInData: true
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+            ClassicEditor
+                .create(document.querySelector('#description2'), {
                     removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption',
                         'ImageStyle', 'ImageToolbar', 'ImageUpload'
                     ],

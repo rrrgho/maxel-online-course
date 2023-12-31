@@ -14,7 +14,7 @@
             @if (Session::has('success'))
                 <div class="col">
                     <div class="alert alert-success" role="alert">
-                        {{Session::get('success')}}
+                        {{ Session::get('success') }}
                     </div>
                 </div>
             @endif
@@ -25,16 +25,17 @@
                 </div>
                 <div class="card-body">
                     <div class="col text-end">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClassModal">Add New</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClassModal">Add
+                            New</button>
                     </div>
                     <div class="col mt-4">
                         <table class="table table-bordered" id="basic-class-table">
                             <thead>
                                 <tr>
                                     <th>Title</th>
-                                    <th>Sub Title</th>
                                     <th>Category</th>
                                     <th>Created At</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                         </table>
@@ -81,8 +82,8 @@
                             <div class="col-sm-12 col-md-4">
                                 <img src="{{ asset('assets/images/image-preview.png') }}" id="preview"
                                     alt="Preview Image">
-                                    <br />
-                                    <small class="text-info">We recomend size of image 908 * 1064</small>
+                                <br />
+                                <small class="text-info">We recomend size of image 908 * 1064</small>
                                 <div class="form-input">
                                     <div class="mb-3">
                                         <input required name="image" onchange="previewImage(event)"
@@ -110,8 +111,8 @@
                                     <select name="category_id" required class="form-select form-select-lg mb-3"
                                         aria-label="Large select example">
                                         <option selected>Select Class Category</option>
-                                        @foreach ($categories as $category )
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -155,10 +156,6 @@
                         name: 'title'
                     },
                     {
-                        data: 'subtitle',
-                        name: 'subtitle'
-                    },
-                    {
                         data: 'category',
                         name: 'category'
                     },
@@ -166,11 +163,15 @@
                         data: 'created_at',
                         name: 'created_at'
                     },
+                    {
+                        data: 'action',
+                        name: 'action'
+                    },
                 ]
             });
 
 
-            
+
             $('#special-class-table').DataTable({
                 processing: true,
                 serverSide: true,
@@ -198,8 +199,12 @@
 
             ClassicEditor
                 .create(document.querySelector('#description'), {
-                     removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption', 'ImageStyle', 'ImageToolbar', 'ImageUpload'],
-                     mediaEmbed: {previewsInData: true}
+                    removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption',
+                        'ImageStyle', 'ImageToolbar', 'ImageUpload'
+                    ],
+                    mediaEmbed: {
+                        previewsInData: true
+                    }
                 })
                 .catch(error => {
                     console.error(error);

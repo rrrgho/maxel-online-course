@@ -82,6 +82,8 @@ https://cdn.jsdelivr.net/npm/@ckeditor/ckeditor5-media-embed@40.2.0/theme/mediae
                 $('#evidencePreview').html('');
             }
     </script>
+
+    @yield('script')
 </body>
 
 </html>

@@ -39,6 +39,13 @@
                                         </div>
                                     </div>
                                 @endif
+                                @if (Session::has('error'))
+                                    <div class="col">
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ Session::get('error') }}
+                                        </div>
+                                    </div>
+                                @endif
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Name</label>
                                     <input name="name" type="text" class="form-control">

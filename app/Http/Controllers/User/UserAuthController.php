@@ -26,6 +26,9 @@ class UserAuthController extends Controller
     }
 
     public function signup(Request $request){
+        $emailExist = User::where('email', $request->email)->first();
+        if($emailExist)
+            return redirect(route('user-signup'))->with('error', 'Email '.$request->email.' is already taken');
         if($request->isMethod('post')){
             User::create([
                 'name' => $request->name,

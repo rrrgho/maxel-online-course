@@ -1,9 +1,25 @@
-<div class="row mt-5">
+@if ($admin)
+    <div class="row justify-content-end">
+        <div class="col-sm-12 col-md-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editLeasson">
+                Edit Leasson
+            </button>
+        </div>
+    </div>
+@endif
+<div class="row">
     <div class="col-12">
         <div class="jumbotron">
-            <a class="text-secondary" href="{{url('user/class/'.$class->id)}}">
-                <h1 class="display-4">{{ $class->title }}</h1>
-            </a>
+            @if (!$admin)
+                <a class="text-secondary" href="{{ url('user/class/' . $class->id) }}">
+                    <h1 class="display-4">{{ $class->title }}</h1>
+                </a>
+            @else
+                <a class="text-secondary" href="{{ url('admin/class/' . $class->id) }}">
+                    <h1 class="display-4">{{ $class->title }}</h1>
+                </a>
+            @endif
+
             <p class="lead">{{ $class->subtitle }}</p>
             <div class="row">
                 {{-- <div class="col-12 text-end">
@@ -14,20 +30,29 @@
         </div>
     </div>
     <div class="col-sm-12 col-md-4">
-        <div class="list-group">
-            @foreach ($class->class_leassons_relation as $class_leasson)
-                <a href="{{ url('/user/leasson/' . $class->id . '/' . $class_leasson->id) }}#list-item-{{ $class_leasson->id }}"
-                    class="list-group-item list-group-item-action border-0 border-bottom p-3 {{$class_leasson->id === $leasson->id ? 'bg-warning' : 'bg-white'}}" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1 bold text-dark">{{ $class_leasson->title }}</h6>
-                        @if ($class_leasson->completed)
-                            <small class="{{$class_leasson->id === $leasson->id ? 'text-white' : 'text-success'}}">Completed</small>
-                        @endif
-                    </div>
-                    <small class="text-secondary">{{ $class_leasson->subtitle }}</small>
-                </a>
-            @endforeach
-        </div>
+        @if (!$admin)
+            <div class="list-group">
+                @foreach ($class->class_leassons_relation as $class_leasson)
+                    <a href="{{ url('/user/leasson/' . $class->id . '/' . $class_leasson->id) }}#list-item-{{ $class_leasson->id }}"
+                        class="list-group-item list-group-item-action border-0 border-bottom p-3 {{ $class_leasson->id === $leasson->id ? 'bg-warning' : 'bg-white' }}"
+                        aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1 bold text-dark">{{ $class_leasson->title }}</h6>
+                            @if ($class_leasson->completed)
+                                <small
+                                    class="{{ $class_leasson->id === $leasson->id ? 'text-white' : 'text-success' }}">Completed</small>
+                            @endif
+                        </div>
+                        <small class="text-secondary">{{ $class_leasson->subtitle }}</small>
+                    </a>
+                @endforeach
+            </div>
+        @else
+            <div class="col">
+                    <img src={{ asset('assets/uploaded/images/classes/' . $class->image) }} class="img-fluid rounded"
+                        alt="...">
+                </div>
+        @endif
     </div>
     <div class="col-8">
         @if ($leasson->completed)
@@ -65,3 +90,58 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal -->
+    <div class="modal fade" id="editLeasson" tabindex="-1" aria-labelledby="editLeassonLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <form action="{{ route('admin-leasson-edit') }}" method="POST"> @csrf
+                <input type="hidden" name="id" value="{{$leasson->id}}">
+                <input type="hidden" name="class_id" value="{{$class->id}}">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="editLeassonLabel">Add Leasson for class {{ $leasson->title }}
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-input">
+                            <input type="text" value="{{$leasson->title}}" name="title" class="form-control" autocomplete="off"
+                                placeholder="Title" required>
+                        </div>
+                        <div class="form-input mt-4 mb-4">
+                            <input type="text" value="{{$leasson->subtitle}}" name="subtitle" class="form-control" autocomplete="off"
+                                placeholder="Sub title" required>
+
+                        </div>
+                        <div class="form-input">
+                            <textarea id="description" name="description">
+                                    {!! $leasson->description !!}
+                                </textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @section('script')
+    <script>
+            ClassicEditor
+                .create(document.querySelector('#description'), {
+                    removePlugins: ['CKFinderUploadAdapter', 'CKFinder', 'EasyImage', 'Image', 'ImageCaption',
+                        'ImageStyle', 'ImageToolbar', 'ImageUpload'
+                    ],
+                    mediaEmbed: {
+                        previewsInData: true
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+    </script>
+    @endsection

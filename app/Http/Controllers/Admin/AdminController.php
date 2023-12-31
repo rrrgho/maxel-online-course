@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ClassCategory;
 use App\Models\ClassModel;
+use App\Models\ClassLeasson;
 use App\Models\BasicClassPriceList;
 use Illuminate\Support\Str;
 use Auth;
@@ -14,67 +15,95 @@ use DataTables;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
-        if(!Auth::guard('teachers')->check())
+    public function dashboard()
+    {
+        if (!Auth::guard('teachers')->check()) {
             return redirect(route('admin-login'));
+        }
         return view('Admin.Dashboard.index');
     }
 
-    public function ckEditorUpload(Request $request){
+    public function ckEditorUpload(Request $request)
+    {
         return $request->all();
     }
 
     // Classes
-    public function classes(){
+    public function classes()
+    {
         $categories = ClassCategory::all();
         return view('Admin.Classes.index', compact('categories'));
     }
 
-    public function basicClassesDatatable(){
-        $data = DataTables::eloquent(ClassModel::query()->with('class_category_relation')->where('type', 2))
-        ->addColumn('category', function($data){
-            return $data->class_category_relation->name;
-        })
-        ->editColumn('created_at', function($data){
-            return $data->created_at->diffForHumans();
-        })
-        ->toJson();
-        return $data;
-    }
-
-    public function specialClassesDatatable(){
-        $data = DataTables::eloquent(ClassModel::query()->with('class_category_relation')->where('type', 1))
-        ->addColumn('category', function($data){
-            return $data->class_category_relation->name;
-        })
-        ->editColumn('created_at', function($data){
-            return $data->created_at->diffForHumans();
-        })
-        ->addColumn('action', function($data){
-            return '
+    public function basicClassesDatatable()
+    {
+        $data = DataTables::eloquent(
+            ClassModel::query()
+                ->with('class_category_relation')
+                ->where('type', 2),
+        )
+            ->addColumn('category', function ($data) {
+                return $data->class_category_relation->name;
+            })
+            ->editColumn('created_at', function ($data) {
+                return $data->created_at->diffForHumans();
+            })
+            ->addColumn('action', function ($data) {
+                return '
                     <div class="row">
                         <div class="col-12 text-center">
-                            <a href="'.url('admin/class/'.$data->id).'" class="btn btn-success">Detail</a>
+                            <a href="' .
+                    url('admin/class/' . $data->id) .
+                    '" class="btn btn-success">Detail</a>
                         </div>
                     </div>
             ';
-        })
-        ->toJson();
+            })
+            ->toJson();
         return $data;
     }
-    
-    public function classDetail(Request $request, $id){
+
+    public function specialClassesDatatable()
+    {
+        $data = DataTables::eloquent(
+            ClassModel::query()
+                ->with('class_category_relation')
+                ->where('type', 1),
+        )
+            ->addColumn('category', function ($data) {
+                return $data->class_category_relation->name;
+            })
+            ->editColumn('created_at', function ($data) {
+                return $data->created_at->diffForHumans();
+            })
+            ->addColumn('action', function ($data) {
+                return '
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <a href="' .
+                    url('admin/class/' . $data->id) .
+                    '" class="btn btn-success">Detail</a>
+                        </div>
+                    </div>
+            ';
+            })
+            ->toJson();
+        return $data;
+    }
+
+    public function classDetail(Request $request, $id)
+    {
         $categories = ClassCategory::all();
         $data = ClassModel::with('class_teacher_relation')->find($id);
         return view('Admin.ClassDetail.index', compact('data', 'categories'));
     }
-    
-    public function classAdd(Request $request){
-        if($request->file()){
-            
+
+    public function classAdd(Request $request)
+    {
+        if ($request->file()) {
             $file = $request->file('image');
             $random = Str::random(40) . '|' . Carbon::now()->toDateString() . '|' . $file->getClientOriginalName();
-            $file->move(public_path('assets/uploaded/images/classes/'),  $random);
+            $file->move(public_path('assets/uploaded/images/classes/'), $random);
             ClassModel::create([
                 'title' => $request->title,
                 'subtitle' => $request->subtitle,
@@ -91,11 +120,38 @@ class AdminController extends Controller
         return $request->all();
     }
 
+    public function classEdit(Request $request)
+    {
+        $data = ClassModel::find($request->id);
+
+        if ($data) {
+            $data->title = $request->title;
+            $data->subtitle = $request->subtitle;
+            $data->description = $request->description;
+            $data->price = $request->price;
+            $data->type = $request->type;
+            $data->teacher_id = $request->teacher_id;
+            if ($request->file()) {
+                $file = $request->file('image');
+                $random = Str::random(40) . '|' . Carbon::now()->toDateString() . '|' . $file->getClientOriginalName();
+                $data->image = $random;
+                
+            }
+            if($data->save()){
+                $file->move(public_path('assets/uploaded/images/classes/'),  $random);
+                return redirect(url('admin/class/'.$request->id))->with('success', 'Success edit class data!');
+            }
+        }else{
+            return redirect(url('admin/class/'.$request->id))->with('error', 'Data class not found!');
+        }
+    }
+
     // Master
-    public function basicClassPriceList(Request $request){
-        if($request->isMethod('post')){
+    public function basicClassPriceList(Request $request)
+    {
+        if ($request->isMethod('post')) {
             $priceList = BasicClassPriceList::find($request->id);
-            $priceList->price  = $request->price;
+            $priceList->price = $request->price;
             $priceList->duration = $request->duration;
             $priceList->save();
             return redirect(route('admin-basic-class-pricelist'))->with('success', 'Success updated Price List');
@@ -104,23 +160,49 @@ class AdminController extends Controller
         return view('Admin.Master.BasicClassPriceList.index', compact('data'));
     }
 
-    public function classCategory(Request $request){
-        if($request->isMethod('post')){
-            $lastIndex =  ClassCategory::all()->last()->id ?? 0;
+    public function classCategory(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $lastIndex = ClassCategory::all()->last()->id ?? 0;
             ClassCategory::create([
                 'id' => $lastIndex + 1,
-                'name' => $request->name
+                'name' => $request->name,
             ]);
             return redirect(route('admin-master-class-category'));
         }
         return view('Admin.Master.ClassCategory.index');
     }
-    public function classCategoryDatatable(){
+    public function classCategoryDatatable()
+    {
         $category = DataTables::eloquent(ClassCategory::query())
-        ->editColumn('created_at', function($data){
-            return $data->created_at->diffForHumans();
-        })
-        ->toJson();
+            ->editColumn('created_at', function ($data) {
+                return $data->created_at->diffForHumans();
+            })
+            ->toJson();
         return $category;
+    }
+
+    public function leassonAdd(Request $request){
+        ClassLeasson::create([
+            'class_id' => $request->class_id,
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'description' => $request->description,
+        ]);
+
+        return redirect(url('admin/class/'.$request->class_id))->with('success', 'Success add Leasson!');
+    }
+
+    public function leassonEdit(Request $request){
+        $data = ClassLeasson::find($request->id);
+        if($data){
+            $data->title =  $request->title;
+            $data->subtitle = $request->subtitle;
+            $data->description = $request->description;
+            $data->save();
+            return redirect(url('admin/leasson/'.$request->class_id.'/'.$request->id))->with('success', 'Success edit leasson!');
+        }else{
+            return redirect(url('admin/leasson/'.$request->class_id.'/'.$request->id))->with('error', 'Leasson not found!');
+        }
     }
 }

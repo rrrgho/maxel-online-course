@@ -68,7 +68,12 @@ Route::middleware('auth:teachers')->group(function () {
         Route::get('classes/basic', [AdminController::class, 'basicClassesDatatable'])->name('admin-basic-class-datatable');
         Route::get('classes/special', [AdminController::class, 'specialClassesDatatable'])->name('admin-special-class-datatable');
         Route::post('classes/add', [AdminController::class, 'classAdd'])->name('admin-add-class');
+        Route::post('classes/edit', [AdminController::class, 'classEdit'])->name('admin-edit-class');
         Route::get('class/{id}', [AdminController::class, 'classDetail'])->name('admin-class-detail');
+
+        Route::post('leasson/add', [AdminController::class, 'leassonAdd'])->name('admin-leasson-add');
+        Route::post('leasson/edit', [AdminController::class, 'leassonEdit'])->name('admin-leasson-edit');
+        Route::get('leasson/{class_id}/{leasson_id}', [ClassController::class, 'classLeassonList']);
         
         Route::get('subscribers/special-class', [AdminSubscriberController::class, 'subscriberSpecialClass'])->name('admin-subscriber-special-class');
         Route::get('subscribers/datatable/special-class', [AdminSubscriberController::class, 'specialClass'])->name('admin-subscriber-special-class-datatable');

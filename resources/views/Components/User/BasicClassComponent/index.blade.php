@@ -71,7 +71,7 @@
 
         <div class="card mt-5">
             <!-- Plan section start -->
-            <section class="plan-style-2 section-b-space" id="plan">
+            <section class="plan-style-2" id="plan">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -96,7 +96,8 @@
                                         <img src="{{ asset('assets/uploaded/images/classes/' . $class->image) }}"
                                             height="300px" class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $class->title }}</h5>
+                                            <h6 class="card-title">{{ $class->title }}</h6>
+                                            <small>{{$class->subtitle}}</small>
                                             {{-- <p class="card-text">{!! $class->description !!}</p> --}}
                                             {{-- <a href="#" class="btn btn-block {{ $class->your_class ? 'btn-success' : 'btn-warning' }} mt-3">{{ $class->your_class ? 'Go to Class' : 'Buy Class' }}</a> --}}
                                         </div>
