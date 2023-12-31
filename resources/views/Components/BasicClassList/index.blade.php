@@ -2,9 +2,9 @@
 <section class="collection-style-1 pb-5" id="collection">
     <div class="bg-blur-color"></div>
     <div class="container">
-        <div class="title-style-4 row g-4">
-            <div class="col-md-6">
-                <h2>We have<span class="txt-success"> 5,000+</span> Collection</h2>
+        <div class="title-style-4 justify-content-center row g-4">
+            <div class="col-md-6 text-center">
+                <h2>Materi Kelas Di Maxel</h2>
                 <p>Here's four easily steps to create and sell your NFTs in Metovo Market</p>
                 <img src="../assets/images/nft/line.webp" alt="line" class="img-fluid">
             </div>
