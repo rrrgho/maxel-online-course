@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="title-style-2 text-center">
                     <h2>
-                        From getting started
+                        Ayo Berlangganan Sekarang !
                     </h2>
                     <p>Start working with Cuba CSS that can provide everything you need to generate awareness,
                         drive traffic, connect.</p>

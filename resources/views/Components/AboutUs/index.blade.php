@@ -1,24 +1,17 @@
  <!-- Tracker section start -->
- <section class="about-style-2 mt-5" id="about-us">
+ <section class="about-style-2 mt-5  bg-light" id="about-us">
      <div class="container custom-container">
          <div class="row justify-content-lg-between justify-content-center gy-md-5 gy-3">
 
-             <div class="col-xl-5 col-lg-6 col-sm-8 col-10">
-                 <div class="about-image">
-                     <img class="img-fluid" src="{{asset('assets/images/app/about.webp')}}" alt="mobile">
-                 </div>
-             </div>
+             
              <div class="col-lg-6">
-                 <div class="title-style-1">
-                     <h5 class="txt-success"># We help you reach your goal</h5>
-                     <h2>About us</h2>
+                 <div class="mt-0 mt-md-5">
+                     {{-- <h5 class="txt-success"># We help you reach your goal</h5> --}}
+                     <h2>Tentang Maxel</h2>
                  </div>
-                 <div class="about-content">
+                 <div class="about-content mt-2">
                      <p>
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem possimus eius, voluptate accusamus, repudiandae inventore architecto asperiores nobis aperiam odio voluptates natus. Voluptas quidem veritatis maxime dignissimos quia. Adipisci, amet.
-                     </p>
-                     <p class="mt-4">
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem possimus eius, voluptate accusamus, repudiandae inventore architecto asperiores nobis aperiam odio voluptates natus. Voluptas quidem veritatis maxime dignissimos quia. Adipisci, amet.
+                         Selamat datang di Maxel! Kami bukan hanya sebuah platform pembelajaran online, tapi juga sebuah komunitas yang penuh dengan pembelajar dan pendidik yang saling mendukung. Bergabunglah bersama kami dalam perjalanan menuju penguasaan digital. Mulailah perjalananmu hari ini!
                      </p>
                      {{-- <figure>
                          <blockquote class="blockquote" style="border-color: #FF4E7E !important;">
@@ -27,6 +20,11 @@
                          </blockquote>
                      </figure> --}}
                      <!-- <button type="button" class="btn btn-primary rounded-pill">See More Tracking</button> -->
+                 </div>
+             </div>
+             <div class="col-xl-5 col-lg-6 col-sm-8 col-10">
+                 <div class="about-image">
+                     <img class="img-fluid" src="{{asset('assets/images/app/about.webp')}}" alt="mobile">
                  </div>
              </div>
          </div>

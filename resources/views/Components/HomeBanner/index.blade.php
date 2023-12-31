@@ -4,7 +4,7 @@
                   <div class="col-xl-7 col-lg-9">
                       <div class="home-content">
                           <h1>
-                              <span class="txt-success">Paradise of Online Course</span>
+                              {{-- <span class="txt-success">Paradise of Online Course</span> --}}
                               {{-- <svg class="home-arrow" width="186" height="31" viewBox="0 0 186 31" fill="none"
                                   xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd"
@@ -12,13 +12,11 @@
                                       fill="#ff4e7e" />
                               </svg> --}}
                               </span>
-                              , Now in a Hand
+                              Maksimalkan Potensi Digitalmu dengan Maxel !
                           </h1>
                           <div class="home-job-content">
                               <p>
-                                  We help you to Empower Your Business
-                                  with Expert IT Consulting and
-                                  New Generation of Digital Solutions.
+                                  Rasakan keunggulan bergabung dengan Maxel, di mana dengan hanya <span class="text-success"><b>Rp. 20.000,</b></span> kamu mendapatkan akses ke ratusan materi terstruktur di Kelas Dasar Digital kami.
                               </p>
 
                               {{-- <div class="home-details pt-0">

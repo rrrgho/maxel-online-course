@@ -9,8 +9,11 @@
     @endcomponent
     @component('Components.WhyChoseUs.index')
     @endcomponent
-    {{-- @component('Components.PriceList.index')
-    @endcomponent --}}
+    @component('Components.BasicClassWebPriceList.index', compact('pricelist'))
+    @endcomponent
+
+    @component('Components.BasicClassList.index', compact('data'))
+        @endcomponent
     @component('Components.CustomerFeedback.index')
     @endcomponent
 @endsection
