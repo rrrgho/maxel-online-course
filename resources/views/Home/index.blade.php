@@ -12,8 +12,15 @@
     @component('Components.BasicClassWebPriceList.index', compact('pricelist'))
     @endcomponent
 
-    @component('Components.BasicClassListWebHome.index', compact('data'))
+
+    @component('Components.Client.index')
+    @endcomponent
+
+    <div class="mt-5">
+        @component('Components.BasicClassListWebHome.index', compact('data'))
         @endcomponent
+    </div>
+        
     @component('Components.CustomerFeedback.index')
     @endcomponent
 @endsection

@@ -36,7 +36,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected $appends = ['basic_user'];
+    protected $appends = ['basic_user','basic_waiting_approved'];
 
     public function basic_user_relation()
     {
@@ -48,6 +48,16 @@ class User extends Authenticatable
         $data = $this->basic_user_relation()->first();
         if ($data) {
             if ($data->status === 'APPROVED') {
+                return $data;
+            }
+        }
+        return false;
+    }
+
+    public function getBasicWaitingApprovedAttribute(){
+        $data = $this->basic_user_relation()->first();
+        if ($data) {
+            if ($data->status === 'WAITING') {
                 return $data;
             }
         }

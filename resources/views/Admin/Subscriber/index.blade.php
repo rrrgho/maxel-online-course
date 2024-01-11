@@ -30,7 +30,7 @@
                                     <th>Email</th>
                                     <th>Class</th>
                                     <th>Status</th>
-                                    <th>Created At</th>
+                                    {{-- <th>Created At</th> --}}
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -83,10 +83,10 @@
                         data: 'status',
                         name: 'Status'
                     },
-                    {
-                        data: 'created_at',
-                        name: 'Date'
-                    },
+                    // {
+                    //     data: 'created_at',
+                    //     name: 'created_at'
+                    // },
                     {
                         data: 'action',
                         name: 'Action'

@@ -172,10 +172,10 @@
                                         </div>
                                         <div class="col-10">
                                             <div class="row">
-                                                <h5>{{ $data->class_teacher_relation->name }}</h5>
-                                                <p>{{ $data->class_teacher_relation->specialist }}</p>
+                                                <h5>{{ $data->teacher_name }}</h5>
+                                                {{-- <p>{{ $data->class_teacher_relation->specialist }}</p> --}}
                                                 <small>
-                                                    {{ $data->class_teacher_relation->bio }}
+                                                    {{ $data->teacher_bio }}
                                                 </small>
                                             </div>
                                         </div>

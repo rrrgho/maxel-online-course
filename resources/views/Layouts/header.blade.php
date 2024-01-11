@@ -22,7 +22,7 @@
                         <a class="nav-link" href="{{url('/special-class')}}">Special Class</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('contact')}}">Bootcamp</a>
+                        <a class="nav-link" href="{{url('/private-class')}}">Private Class</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#plan"></a>
@@ -33,8 +33,8 @@
                 </ul>
             </div>
             @if (!Auth::user())
-                {{-- <a href="{{route('login-user')}}" --}}
-                <a href="#"
+                <a href="{{route('login-user')}}"
+                {{-- <a href="#" --}}
                     class="btn btn-primary d-none d-md-block">Sign in
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>

@@ -16,22 +16,13 @@ class TeacherSeeder extends Seeder
         $teachers = [
             [
                 'id' => 1,
-                'email' => 'admin@admin.com',
-                'password' => bcrypt('admin'),
+                'email' => 'fakhri@maxelcourse.com',
+                'password' => bcrypt('maxelCourseFMC24'),
                 'type' => 2,
                 'name' => 'Fakhri',
-                'specialist' => 'Administrator | Designer',
+                'specialist' => 'Administrator',
                 'bio' => 'Administrator who own this platform, feel free to send me any feedback to make this platform better.'
             ],
-            [
-                'id' => 2,
-                'email' => 'shandikagalih@unpas.com',
-                'password' => bcrypt('admin'),
-                'type' => 2,
-                'name' => 'Sandhika Galih',
-                'specialist' => 'Web Programmer',
-                'bio' => 'I am web programmer with years of experience, I love to enable people through Web programmer lesson which will give much benefit to them.'
-            ]
         ];
 
         foreach($teachers as $teacher){

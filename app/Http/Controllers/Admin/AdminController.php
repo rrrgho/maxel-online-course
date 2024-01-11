@@ -18,6 +18,7 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
+        return redirect(route('admin-classes'));
         if (!Auth::guard('teachers')->check()) {
             return redirect(route('admin-login'));
         }
@@ -41,7 +42,8 @@ class AdminController extends Controller
         $data = DataTables::eloquent(
             ClassModel::query()
                 ->with('class_category_relation')
-                ->where('type', 2),
+                ->where('type', 2)
+                ->orderBy('created_at', 'DESC'),
         )
             ->addColumn('category', function ($data) {
                 return $data->class_category_relation->name;
@@ -115,6 +117,8 @@ class AdminController extends Controller
                 'type' => $request->type,
                 'category_id' => $request->category_id,
                 'teacher_id' => Auth::guard('teachers')->user()->id,
+                'teacher_name' => $request->teacher_name,
+                'teacher_bio' => $request->teacher_bio ?? '',
                 'price' => $request->price,
             ]);
 

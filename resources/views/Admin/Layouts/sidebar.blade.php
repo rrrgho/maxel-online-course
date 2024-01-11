@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header p-4">
-        <img src="https://doiscode.com/assets/images/logo/logo.png" alt="Logo">
+        <img src="{{asset('assets/images/logo/logo.png')}}" alt="Logo">
     </div>
     <div class="card-body p-0">
         <div class="list-group rounded-0">

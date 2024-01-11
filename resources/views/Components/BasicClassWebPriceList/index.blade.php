@@ -35,6 +35,22 @@
                                                             @endif
                                                         </h6>
                                                         <div class="d-flex align-items-end">
+                                                            <h5>
+                                                                IDR 
+                                                                <s>
+                                                                    @if ($item->id === 1)
+                                                                        <span>450.000</span>
+                                                                    @endif
+                                                                    @if ($item->id === 2)
+                                                                        <span>2.499.000</span>
+                                                                    @endif
+                                                                    @if ($item->id === 3)
+                                                                        <span>900.000</span>
+                                                                    @endif
+                                                                </s>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="d-flex align-items-end">
                                                             <h3>IDR {{ number_format($item->price) }}</h3>
                                                             <span></span>
                                                         </div>

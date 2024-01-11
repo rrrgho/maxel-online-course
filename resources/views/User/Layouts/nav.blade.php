@@ -41,7 +41,7 @@
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="custom-container container">
             <a class="navbar-brand m-0" href="index.html">
-                <img src="{{asset('assets/images/logo/logo.png')}}" alt="logo" />
+                <img src="{{ asset('assets/images/logo/logo.png') }}" alt="logo" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,18 +51,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav navigation">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/user/dashboard')}}">Dashboard</a>
+                        <a class="nav-link" href="{{ url('/user/dashboard') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/user/basic-class')}}">Basic Class</a>
+                        <a class="nav-link" href="{{ url('/user/basic-class') }}">Basic Class</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('user/special-class')}}">Special Class</a>
+                        <a class="nav-link" href="{{ url('user/special-class') }}">Special Class</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="{{url('user/your-purchase')}}">
-                          <i class="fa-solid me-2 fa-cart-shopping"></i>
-                          Your Purchase
+                        <a class="nav-link text-secondary" href="{{ url('user/your-purchase') }}">
+                            <i class="fa-solid me-2 fa-cart-shopping"></i>
+                            Your Purchase
                         </a>
                     </li>
                     <li class="nav-item">
@@ -70,10 +70,10 @@
                     </li>
                 </ul>
             </div>
-            <a href="{{route('logout-user')}}"
-                class="btn btn-danger d-none d-md-block">Log out
+            <a href="{{ route('logout-user') }}" class="btn btn-danger d-none d-md-block">Log out
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
+
         </div>
     </nav>
 </header>

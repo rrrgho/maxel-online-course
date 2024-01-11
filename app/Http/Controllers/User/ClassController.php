@@ -23,8 +23,16 @@ class ClassController extends Controller
 
     public function basicClass()
     {
+        $subscription = BasicClassUser::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->first();
+        if ($subscription) {
+            if ($subscription->expired_date < Carbon::now()) {
+                $subscription->delete();
+            }
+        }
         $pricelist = BasicClassPriceList::orderBy('id', 'ASC')->get();
-        $data = ClassModel::where('type', 2)->paginate(10);
+        $data = ClassModel::where('type', 2)->get();
         return view('User.BasicClass.index', compact('data', 'pricelist'));
     }
 
@@ -100,9 +108,28 @@ class ClassController extends Controller
         }
     }
 
+    public function specialClassSubscribe(Request $request)
+    {
+        if ($request->file()) {
+            $file = $request->file('payment_image');
+            $random = Str::random(40) . '|' . Carbon::now()->toDateString() . '|' . $file->getClientOriginalName();
+            $file->move(public_path('assets/uploaded/images/payment/'), $random);
+
+            ClassUser::create([
+                'class_id' => $request->class_id,
+                'user_id' => Auth::user()->id,
+                'payment_image' => $random,
+                'status' => 'WAITING',
+            ]);
+
+            return redirect(route('user-special-class'))->with('success', 'Succees subscribe special class, admin will contact you to activate your subscribtion !');
+        }
+    }
+
     public function yourPurchase()
     {
-        $data = BasicClassUser::all();
-        return view('User.YourPurchase.index', compact('data'));
+        $data = BasicClassUser::where('user_id', Auth::user()->id)->get();
+        $expired_basic = BasicClassUser::where('user_id', Auth::user()->id)->onlyTrashed()->get();
+        return view('User.YourPurchase.index', compact('data', 'expired_basic'));
     }
 }

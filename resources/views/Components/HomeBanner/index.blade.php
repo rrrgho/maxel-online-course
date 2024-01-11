@@ -53,8 +53,8 @@
                       </div>
                   </div>
                   <div class="col-lg-6 d-lg-block d-none">
-                      <div class="home-image text-end d-md-block d-none">
-                          {{-- <img class="" src="./assets/images/job/doiscode-banner.png" alt="career" /> --}}
+                      <div class="home-image text-end d-xl-block d-none">
+                          <img class="" style="height: 680px !important;" src="{{asset('assets/images/app/web/home1.jpg')}}" alt="career" />
                       </div>
                   </div>
               </div>

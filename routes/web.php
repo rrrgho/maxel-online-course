@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\WebController;
 use App\Http\Controllers\Web\WebBasicClassController;
 use App\Http\Controllers\Web\WebSpecialClassController;
+use App\Http\Controllers\Web\WebPrivateClassController;
 use App\Http\Controllers\User\ClassController;
 use App\Http\Controllers\User\UserAuthController;
 use App\Http\Controllers\Admin\AdminAuthController;
@@ -25,6 +26,7 @@ Route::get('/', [WebController::class, 'index']);
 Route::get('basic-class', [WebBasicClassController::class, 'index'])->name('web-basic-class');
 Route::get('class/{id}', [WebController::class, 'classDetail']);
 Route::get('special-class', [WebSpecialClassController::class, 'index'])->name('web-special-class');
+Route::get('private-class', [WebPrivateClassController::class, 'index'])->name('web-private-class');
 
 Route::get('/user/login', [UserAuthController::class, 'login'])->name('login-user');
 Route::get('/user/signup', [UserAuthController::class, 'signup'])->name('user-signup');
@@ -47,6 +49,7 @@ Route::middleware('auth:web')->group(function () {
         Route::get('/basic-class', [ClassController::class, 'basicClass'])->name('user-basic-class');
         Route::post('/basic-class/subscribe', [ClassController::class, 'basicClassSubscribe'])->name('user-basic-class-subscribe');
         Route::get('/special-class', [ClassController::class, 'specialClass'])->name('user-special-class');
+        Route::post('/special-class/subscribe', [ClassController::class, 'specialClassSubscribe'])->name('user-special-class-subscribe');
         Route::get('/class/{id}', [ClassController::class, 'classDetail']);
         Route::get('/leasson/{class_id}/{leasson_id}', [ClassController::class, 'classLeassonList']);
         Route::post('/leason/complete', [ClassController::class, 'basicClassLeassonComplete'])->name('complete-basic-leasson');

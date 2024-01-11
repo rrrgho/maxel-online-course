@@ -39,7 +39,7 @@
                             </div>
                         </div>
                 <div class="col-sm-12 col-md-7 justify-content-center">
-                    <button type="submit" class="input-group-text mt-4" id="basic-addon4">Login<i class="fa-solid fa-arrow-right ms-2"></i></button>
+                    <button type="submit" class="input-group-text btn-primary mt-4" id="basic-addon4">Login<i class="fa-solid fa-arrow-right ms-2"></i></button>
                 </div>
             </div>
         </form>

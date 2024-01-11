@@ -14,18 +14,29 @@
 </head>
 
 <body style="background: #eee;">
-    <div class="tap-top" style="background-color: #FF4E7E;"><i class="fa-solid fa-angles-up"></i></div>
-    <main>
-        {{-- <div class="container bg-white p-4" style="height: 100vh; overflow-y: scroll;"> --}}
-        @component('User.Layouts.nav')
-        @endcomponent
-        @yield('content')
-        {{-- </div> --}}
-    </main>
-    <!-- bootstrap js -->
-    {{-- @component('Layouts.footer')
+    <div class="wrapper-user">
+        <div class="section-absolute">
+            <div class="tap-top" style="background-color: #FF4E7E;"><i class="fa-solid fa-angles-up"></i></div>
+            <main>
+                {{-- <div class="container bg-white p-4" style="height: 100vh; overflow-y: scroll;"> --}}
+                @component('User.Layouts.nav')
+                @endcomponent
+                @yield('content')
+                {{-- </div> --}}
+
+
+            </main>
+        </div>
+        <!-- bootstrap js -->
+        {{-- @component('Layouts.footer')
 
     @endcomponent --}}
+        <div class="whatsapp-floating">
+            <a href="https://wa.me/+628123456789/?text=Hi,MaxelCourse" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp text-white" style="font-size: 70px"></i>
+            </a>
+        </div>
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
@@ -57,5 +68,7 @@
         }
     }
 </script>
+
+@yield('script')
 
 </html>

@@ -19,75 +19,69 @@
                                  <div class="review-box">
                                      <div class="review-user d-flex align-items-center">
                                          <div class="review-image">
-                                             <img src="{{asset('assets/images/app/customer/1.webp')}}" alt="profile">
+                                             <img src="{{asset('assets/images/app/web/feedback/Heloklin.jpg')}}" alt="profile">
                                          </div>
                                          <div>
-                                             <h3>Cameron Williamson</h3>
-                                             <span class="txt-success">Cloud Solutions | CEO</span>
+                                             <h3>Yudi Prasmanan</h3>
+                                             <span class="txt-success">Freelance Designer</span>
                                          </div>
                                      </div>
                                      <div class="review-content">
-                                         <p>Planning a project requires a number of tasks to assure timely
-                                             delivery. Project planning is one of the most important features
-                                             you’ve been looking for to optimize work flow.</p>
+                                         <p>Materi mudah dipahami, mentor responsif terhadap pertanyaan, Saya merasa lebih percaya diri dalam menghasilkan desain yang kreatif, sangat direkomendasikan untuk yang ingin memulai menambah skill di era digital ini!</p>
                                      </div>
-                                     <ul class="ratings d-flex">
+                                     {{-- <ul class="ratings d-flex">
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
-                                     </ul>
+                                     </ul> --}}
                                  </div>
                              </div>
                              <div class="swiper-slide">
                                  <div class="review-box">
                                      <div class="review-user d-flex align-items-center">
                                          <div class="review-image">
-                                             <img src="{{asset('assets/images/app/customer/3.webp')}}" alt="profile">
+                                             <img src="{{asset('assets/images/app/web/feedback/vara.jpg')}}" alt="profile">
                                          </div>
                                          <div>
-                                             <h3>Esther Howard</h3>
-                                             <span class="txt-success">Asia Technology | Product Designer</span>
+                                             <h3>Andi Namora SIregar MCP / Dessy</h3>
+                                             <span class="txt-success">Heloklin.id</span>
                                          </div>
                                      </div>
                                      <div class="review-content">
-                                         <p>Hey, I loved it's great design and using this for my online book
-                                             selling website [ readtheworld.eu ]. I am thankful to the support
-                                             team. </p>
+                                         <p>Saya selalu mencari cara baru untuk memperkuat branding, pelatihan digital marketing dari Maxel membuka pandangan baru. Materi-materi praktis, seperti strategi media sosial dan ads, langsung dapat diaplikasikan dalam rencana pemasaran kami.</p>
                                      </div>
-                                     <ul class="ratings d-flex">
+                                     {{-- <ul class="ratings d-flex">
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
-                                     </ul>
+                                     </ul> --}}
                                  </div>
                              </div>
                              <div class="swiper-slide">
                                  <div class="review-box">
                                      <div class="review-user d-flex align-items-center">
                                          <div class="review-image">
-                                             <img src="{{asset('assets/images/app/customer/4.webp')}}" alt="profile">
+                                             <img src="{{asset('assets/images/app/web/feedback/yudi.jpg')}}" alt="profile">
                                          </div>
                                          <div>
-                                             <h3>Jacob Jones</h3>
-                                             <span class="txt-success">web technology | CEO</span>
+                                             <h3>Vara anggia</h3>
+                                             <span class="txt-success">Business Owner</span>
                                          </div>
                                      </div>
                                      <div class="review-content">
-                                         <p>Planning a project requires a number of tasks to assure timely
-                                             delivery. Project planning is one of the most important features
-                                             you’ve been looking for to optimize work flow.</p>
+                                         <p>Kelas yang tersedia sangat relevan dan terstruktur dengan baik. Banyak hal baru yang saya pelajari dan memberikan nilai tambah yang signifikan buat bisnis saya</p>
                                      </div>
-                                     <ul class="ratings d-flex">
+                                     {{-- <ul class="ratings d-flex">
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star"></i></li>
                                          <li><i class="fa-solid fa-star fill-light"></i></li>
-                                     </ul>
+                                     </ul> --}}
                                  </div>
                              </div>
                          </div>

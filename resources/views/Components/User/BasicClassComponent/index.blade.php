@@ -10,6 +10,16 @@
             </div>
         @endif
 
+        @if (Auth::user()->basic_waiting_approved)
+            <div class="row mb-10 mt-5">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>You have subscribed!</strong> 
+                    <span>But your subscribtion status is pending, please contact Admin to reconfirm your payment</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
+
 
         @if (Auth::user()->basic_user)
             <!-- Banner section start -->
@@ -123,7 +133,9 @@
     </div>
 </section>
 
-@if (!Auth::user()->basic_user)
+@if (!Auth::user()->basic_user && !Auth::user()->basic_waiting_approved)
     @component('Components.BasicClassPriceList.index', compact('pricelist'))
     @endcomponent
 @endif
+
+

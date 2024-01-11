@@ -5,7 +5,7 @@
         <div class="title-style-4 justify-content-center row g-4">
             <div class="col-md-6 text-center">
                 <h2>Materi Kelas Basic Di Maxel</h2>
-                <p>Berlangganan sekali, akses selamanya!</p>
+                <p>Cocok untuk pemula dan yang ingin memperluas skill digital ! Dapatkan akses ke ratusan materi skill digital dasar. Mulai langkah Anda ke dunia digital sekarang! </p>
                 <img src="../assets/images/nft/line.webp" alt="line" class="img-fluid">
             </div>
         </div>

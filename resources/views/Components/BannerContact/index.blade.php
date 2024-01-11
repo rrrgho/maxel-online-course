@@ -12,7 +12,7 @@
                          Please feel free to reach out using the contact information below, and our dedicated team will be in touch with you promptly
                      </p>
                      <br />
-                     <a href="https://wa.me/+6285186897566/?text=Hi,%20I%20Want%20to%20Consult%20with%20Doiscode%20Support%20Team" type="button btn-large" class="btn btn-secondary mt-4">
+                     <a href="https://wa.me/+628123456789/?text=Hi,MaxelCourse" type="button btn-large" class="btn btn-secondary mt-4">
                             <i class="fa-brands fa-whatsapp me-2"></i>
                         Whatsapp Us</a>
                  </div>

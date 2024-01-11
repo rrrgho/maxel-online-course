@@ -121,6 +121,14 @@
                                         placeholder="Title" required>
                                 </div>
                                 <div class="form-input mt-4 mb-4">
+                                    <input type="text" name="teacher_name" class="form-control" autocomplete="off"
+                                        placeholder="Teacher Name" required>
+                                </div>
+                                <div class="form-input mt-4 mb-4">
+                                    <input type="text" name="teacher_bio" class="form-control" autocomplete="off"
+                                        placeholder="Teacher Bio" required>
+                                </div>
+                                <div class="form-input mt-4 mb-4">
                                     <input type="text" name="subtitle" class="form-control" autocomplete="off"
                                         placeholder="Sub title" required>
 

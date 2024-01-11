@@ -119,6 +119,20 @@
                         </ul>
                     </div>
                     <div class="col-lg-6">
+                        <ul class="solution-content p-0">
+                            <li>
+                                <div class="d-flex bg-light-success w-100">
+                                    <div class="solution-icon">
+                                        <img src="../assets/images/sass/icons/2.webp" alt="vector icon">
+                                    </div>
+                                    <div>
+                                        <h3>Payment Information</h3>
+                                        <p>Please send your payment only to this account number</p>
+                                        <p><b>DANA/OVO: 081264346755</b></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                         <form action="{{ route('user-basic-class-subscribe') }}" method="POST"
                             enctype="multipart/form-data"> @csrf
                             <div class="mb-3">

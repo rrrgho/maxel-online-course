@@ -5,7 +5,7 @@
         <div class="title-style-4 justify-content-center row g-4">
             <div class="col-md-6 text-center">
                 <h2>Materi Kelas Special Di Maxel</h2>
-                <p>Pilih kelas terbaik versi kamu!</p>
+                <p>Dibuat oleh mentor berpengalaman, kelas ini dirancang khusus untuk meningkatkan kemampuanmu. Maksimalkan potensi digital kamu!</p>
                 <img src="../assets/images/nft/line.webp" alt="line" class="img-fluid">
             </div>
         </div>

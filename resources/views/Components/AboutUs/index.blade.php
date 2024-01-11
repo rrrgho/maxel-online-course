@@ -4,6 +4,11 @@
          <div class="row justify-content-lg-between justify-content-center gy-md-5 gy-3">
 
              
+             <div class="col-xl-5 col-lg-6 col-sm-8 col-10" style="padding-bottom: 80px;">
+                 <div class="about-image">
+                     <img class="img-fluid" src="{{asset('assets/images/app/web/home2.jpg')}}" alt="mobile">
+                 </div>
+             </div>
              <div class="col-lg-6">
                  <div class="mt-0 mt-md-5">
                      {{-- <h5 class="txt-success"># We help you reach your goal</h5> --}}
@@ -11,7 +16,7 @@
                  </div>
                  <div class="about-content mt-2">
                      <p>
-                         Selamat datang di Maxel! Kami bukan hanya sebuah platform pembelajaran online, tapi juga sebuah komunitas yang penuh dengan pembelajar dan pendidik yang saling mendukung. Bergabunglah bersama kami dalam perjalanan menuju penguasaan digital. Mulailah perjalananmu hari ini!
+                        Selamat datang di Maxel! Kami bukan hanya sebuah platform pembelajaran online, tapi juga sebuah komunitas yang penuh dengan pembelajar dan pendidik yang saling mendukung. Bergabunglah bersama kami dalam perjalanan menuju penguasaan digital. Mulailah perjalananmu hari ini!
                      </p>
                      {{-- <figure>
                          <blockquote class="blockquote" style="border-color: #FF4E7E !important;">
@@ -20,11 +25,6 @@
                          </blockquote>
                      </figure> --}}
                      <!-- <button type="button" class="btn btn-primary rounded-pill">See More Tracking</button> -->
-                 </div>
-             </div>
-             <div class="col-xl-5 col-lg-6 col-sm-8 col-10">
-                 <div class="about-image">
-                     <img class="img-fluid" src="{{asset('assets/images/app/about.webp')}}" alt="mobile">
                  </div>
              </div>
          </div>

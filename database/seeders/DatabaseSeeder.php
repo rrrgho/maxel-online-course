@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             // ClassCategorySeeder::class,
             TeacherSeeder::class,
             // ClassesSeeder::class,
-            // ClassUserSeeder::class
+            // ClassUserSeeder::class,
+            BasicClassPriceListSeeder::class,
         ]);
     }
 }

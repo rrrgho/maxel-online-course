@@ -10,7 +10,7 @@ use App\Models\ClassModel;
 class WebController extends Controller
 {
     public function index(){
-        $data = ClassModel::where('type', 2)->paginate(10);
+        $data = ClassModel::where('type', 2)->get();
         $pricelist = BasicClassPriceList::orderBy('id', 'ASC')->get();
         return view('Home.index', compact('pricelist', 'data'));
     }
