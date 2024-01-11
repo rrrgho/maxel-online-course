@@ -6,7 +6,7 @@
     @endcomponent
     @component('Layouts.relicon')
     @endcomponent
-    <title>{{$title ?? 'Title Page'}} | Doiscode Technology</title>
+    <title>{{$title ?? 'Title Page'}} | Maxel Course</title>
     @component('Layouts.style')
     @endcomponent
 </head>
