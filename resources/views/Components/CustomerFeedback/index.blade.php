@@ -45,12 +45,12 @@
                                              <img src="{{asset('assets/images/app/web/feedback/vara.jpg')}}" alt="profile">
                                          </div>
                                          <div>
-                                             <h3>Andi Namora SIregar MCP / Dessy</h3>
-                                             <span class="txt-success">Heloklin.id</span>
+                                             <h3>Dessy</h3>
+                                             <span class="txt-success">SPV sales & marketing Heloklin.id</span>
                                          </div>
                                      </div>
                                      <div class="review-content">
-                                         <p>Saya selalu mencari cara baru untuk memperkuat branding, pelatihan digital marketing dari Maxel membuka pandangan baru. Materi-materi praktis, seperti strategi media sosial dan ads, langsung dapat diaplikasikan dalam rencana pemasaran kami.</p>
+                                         <p>Materi-materi praktis, seperti strategi media sosial dan ads, langsung dapat diaplikasikan dalam rencana pemasaran kami.</p>
                                      </div>
                                      {{-- <ul class="ratings d-flex">
                                          <li><i class="fa-solid fa-star"></i></li>
@@ -68,8 +68,8 @@
                                              <img src="{{asset('assets/images/app/web/feedback/yudi.jpg')}}" alt="profile">
                                          </div>
                                          <div>
-                                             <h3>Vara anggia</h3>
-                                             <span class="txt-success">Business Owner</span>
+                                             <h3>Vara</h3>
+                                             <span class="txt-success">anggia business owner</span>
                                          </div>
                                      </div>
                                      <div class="review-content">

@@ -16,27 +16,27 @@
                 <div class="brand-slider-wrapper">
                     <div class="swiper brand-slider-1">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
+                            {{-- <div class="swiper-slide">
                                 <div class="brand-box">
                                     <img src="{{ asset('assets/images/app/web/client/bride2be.png') }}"
                                         alt="logo" />
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="swiper-slide">
                                 <div class="brand-box">
-                                    <img src="{{ asset('assets/images/app/web/client/heloklin.png') }}"
+                                    <img src="{{ asset('assets/images/app/web/client/helokin.png') }}"
                                         alt="logo" />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box">
-                                    <img src="{{ asset('assets/images/app/web/client/kalembo koffie.png') }}"
+                                    <img src="{{ asset('assets/images/app/web/client/kalembo.png') }}"
                                         alt="logo" />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="brand-box">
-                                    <img src="{{ asset('assets/images/app/web/client/llouhan.png') }}" alt="logo" />
+                                    <img src="{{ asset('assets/images/app/web/client/louhan.png') }}" alt="logo" />
                                 </div>
                             </div>
                             <div class="swiper-slide">

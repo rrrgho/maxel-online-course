@@ -6,7 +6,7 @@
              
              <div class="col-xl-5 col-lg-6 col-sm-8 col-10" style="padding-bottom: 80px;">
                  <div class="about-image">
-                     <img class="img-fluid" src="{{asset('assets/images/app/web/home2.jpg')}}" alt="mobile">
+                     <img class="img-fluid rounded" src="{{asset('assets/images/app/web/home2.jpg')}}" alt="mobile">
                  </div>
              </div>
              <div class="col-lg-6">

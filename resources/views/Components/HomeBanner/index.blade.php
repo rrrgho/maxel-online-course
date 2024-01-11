@@ -54,7 +54,7 @@
                   </div>
                   <div class="col-lg-6 d-lg-block d-none">
                       <div class="home-image text-end d-xl-block d-none">
-                          <img class="" style="height: 680px !important;" src="{{asset('assets/images/app/web/home1.jpg')}}" alt="career" />
+                          <img class="" src="{{asset('assets/images/app/web/home1.png')}}" alt="career" />
                       </div>
                   </div>
               </div>

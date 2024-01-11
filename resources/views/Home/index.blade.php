@@ -13,8 +13,7 @@
     @endcomponent
 
 
-    @component('Components.Client.index')
-    @endcomponent
+   
 
     <div class="mt-5">
         @component('Components.BasicClassListWebHome.index', compact('data'))

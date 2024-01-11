@@ -31,7 +31,7 @@
                             <div class="collection-content">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="content-title">
-                                        <span>{{ $item->class_teacher_relation->name }}</span>
+                                        <span>{{ $item->teacher_name }}</span>
                                         <svg>
                                             <use href="../assets/svg/icon_sprite.svg#successful"></use>
                                         </svg>

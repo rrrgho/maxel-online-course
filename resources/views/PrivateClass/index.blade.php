@@ -66,6 +66,11 @@
     </section>
     <!-- About section end -->
 
+     <div class="mb-5">
+        @component('Components.Client.index')
+    @endcomponent
+     </div>
+
     <!-- Subscription section start -->
         <section class="subscribe-style-1 mt-5">
             <div class="custom-container container">
