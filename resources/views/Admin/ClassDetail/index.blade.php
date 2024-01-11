@@ -95,6 +95,15 @@
                                         placeholder="Sub title" value="{{ $data->subtitle }}" required>
 
                                 </div>
+
+                                <div class="form-input mt-4 mb-4">
+                                    <input type="text" name="teacher_name" class="form-control" autocomplete="off"
+                                        placeholder="Teacher Name" value="{{$data->teacher_name}}" required>
+                                </div>
+                                <div class="form-input mt-4 mb-4">
+                                    <input type="text" name="teacher_bio" class="form-control" autocomplete="off"
+                                        placeholder="Teacher Bio" value="{{$data->teacher_bio}}" required>
+                                </div>
                                 <div class="form-input mt-4 mb-4">
                                     <input type="number" name="price" value="{{ $data->price }}" class="form-control"
                                         autocomplete="off" placeholder="Price">

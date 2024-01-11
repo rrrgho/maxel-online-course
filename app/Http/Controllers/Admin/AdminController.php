@@ -58,6 +58,10 @@ class AdminController extends Controller
                             <a href="' .
                     url('admin/class/' . $data->id) .
                     '" class="btn btn-success">Detail</a>
+                            
+                    <a href="' .
+                    url('admin/class/delete/' . $data->id) .
+                    '" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
             ';
@@ -86,6 +90,10 @@ class AdminController extends Controller
                             <a href="' .
                     url('admin/class/' . $data->id) .
                     '" class="btn btn-success">Detail</a>
+
+                    <a href="' .
+                    url('admin/class/delete/' . $data->id) .
+                    '" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
             ';
@@ -138,19 +146,33 @@ class AdminController extends Controller
             $data->price = $request->price;
             $data->type = $request->type;
             $data->teacher_id = $request->teacher_id;
+            $data->teacher_name = $request->teacher_name;
+            $data->teacher_bio = $request->teacher_bio;
             if ($request->file()) {
                 $file = $request->file('image');
                 $random = Str::random(40) . '|' . Carbon::now()->toDateString() . '|' . $file->getClientOriginalName();
                 $data->image = $random;
-                
+                if ($data->save()) {
+                    $file->move(public_path('assets/uploaded/images/classes/'), $random);
+                    return redirect(url('admin/class/' . $request->id))->with('success', 'Success edit class data!');
+                }
             }
-            if($data->save()){
-                $file->move(public_path('assets/uploaded/images/classes/'),  $random);
-                return redirect(url('admin/class/'.$request->id))->with('success', 'Success edit class data!');
-            }
-        }else{
-            return redirect(url('admin/class/'.$request->id))->with('error', 'Data class not found!');
+            $data->save();
+            return redirect(url('admin/class/' . $request->id))->with('success', 'Success edit class data !!');
+        } else {
+            return redirect(url('admin/class/' . $request->id))->with('error', 'Data class not found!');
         }
+    }
+
+    public function classDelete($id)
+    {
+        $data = ClassModel::find($id);
+
+        if ($data) {
+            $data->delete();
+            return redirect(route('admin-classes'))->with('success', 'Success delete class data!');
+        }
+        return redirect(route('admin-classes'))->with('error', 'Data class not found!');
     }
 
     // Master
@@ -168,7 +190,8 @@ class AdminController extends Controller
         return view('Admin.Master.BasicClassPriceList.index', compact('data', 'features'));
     }
 
-    public function basicClassPriceListFeatureAdd(Request $request){
+    public function basicClassPriceListFeatureAdd(Request $request)
+    {
         BasicClassPriceListFeature::create([
             'pricelist_id' => $request->pricelist_id,
             'label' => $request->label,
@@ -177,7 +200,8 @@ class AdminController extends Controller
         return redirect(route('admin-basic-class-pricelist'))->with('success', 'Success add Feature');
     }
 
-    public function basicClassPriceListFeatureDelete($id){
+    public function basicClassPriceListFeatureDelete($id)
+    {
         BasicClassPriceListFeature::find($id)->delete();
         return redirect(route('admin-basic-class-pricelist'))->with('success', 'Success deleted Feature');
     }
@@ -204,7 +228,8 @@ class AdminController extends Controller
         return $category;
     }
 
-    public function leassonAdd(Request $request){
+    public function leassonAdd(Request $request)
+    {
         ClassLeasson::create([
             'class_id' => $request->class_id,
             'title' => $request->title,
@@ -212,19 +237,30 @@ class AdminController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect(url('admin/class/'.$request->class_id))->with('success', 'Success add Leasson!');
+        return redirect(url('admin/class/' . $request->class_id))->with('success', 'Success add Leasson!');
     }
 
-    public function leassonEdit(Request $request){
+    public function leassonEdit(Request $request)
+    {
         $data = ClassLeasson::find($request->id);
-        if($data){
-            $data->title =  $request->title;
+        if ($data) {
+            $data->title = $request->title;
             $data->subtitle = $request->subtitle;
             $data->description = $request->description;
             $data->save();
-            return redirect(url('admin/leasson/'.$request->class_id.'/'.$request->id))->with('success', 'Success edit leasson!');
-        }else{
-            return redirect(url('admin/leasson/'.$request->class_id.'/'.$request->id))->with('error', 'Leasson not found!');
+            return redirect(url('admin/leasson/' . $request->class_id . '/' . $request->id))->with('success', 'Success edit leasson!');
+        } else {
+            return redirect(url('admin/leasson/' . $request->class_id . '/' . $request->id))->with('error', 'Leasson not found!');
+        }
+    }
+
+    public function leassonDelete($class_id, $id){
+        $data = ClassLeasson::find($id);
+        if ($data) {
+            $data->delete();
+            return redirect(url('admin/class/'.$class_id))->with('success', 'Success delete leasson!');
+        } else {
+            return redirect(url('admin/class/'.$class_id))->with('error', 'Leasson not found!');
         }
     }
 }

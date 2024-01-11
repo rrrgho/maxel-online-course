@@ -1,9 +1,12 @@
 @if ($admin)
     <div class="row justify-content-end">
-        <div class="col-sm-12 col-md-2">
+        <div class="col-sm-12 col-md-4">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editLeasson">
                 Edit Leasson
             </button>
+            <a href="{{url('/admin/leasson/delete/'.$class->id.'/'.$leasson->id)}}" class="btn btn-danger">
+                Delete Leasson
+            </a>
         </div>
     </div>
 @endif
