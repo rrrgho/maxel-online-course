@@ -26,9 +26,12 @@ class ClassController extends Controller
         $subscription = BasicClassUser::where('user_id', Auth::user()->id)
             ->orderBy('created_at', 'DESC')
             ->first();
+            
         if ($subscription) {
-            if ($subscription->expired_date < Carbon::now()) {
-                $subscription->delete();
+            if($subscription->expired_date){
+                if ($subscription->expired_date < Carbon::now()) {
+                    $subscription->delete();
+                }
             }
         }
         $pricelist = BasicClassPriceList::orderBy('id', 'ASC')->get();
@@ -94,7 +97,7 @@ class ClassController extends Controller
             $random = Str::random(40) . '|' . Carbon::now()->toDateString() . '|' . $file->getClientOriginalName();
             $file->move(public_path('assets/uploaded/images/payment/'), $random);
 
-            BasicClassUser::create([
+            $create = BasicClassUser::create([
                 'user_id' => Auth::user()->id,
                 'status' => 'WAITING',
                 'duration' => $request->duration,

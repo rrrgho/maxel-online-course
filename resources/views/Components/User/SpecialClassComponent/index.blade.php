@@ -94,19 +94,17 @@
                     <div class="col-12">
                         <b>Payment should only be transfered to this bank account</b> <br>
                         <small><p><b>DANA/OVO: 081264346755</b></p></small> <br>
+                        <small><p><b> Indah Permata Santana</b></p></small> <br>
 
                         {{-- <small>a.n. Maxel Course</small> --}}
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="col">
-                        <h3 id="titleBuyClass">sas</h3>
-                    </div>
-                    <div class="col">
                         <img src="{{ asset('assets/images/image-preview.png') }}" id="preview" alt="Preview Image">
                         <br />
                         <div class="form-input">
-                            <label for="" class="form-label">Payment Evidence</label>
+                            <label for="" class="form-label">Masukan Bukti Pembayaran</label>
                             <div class="mb-3">
                                 <input type="hidden" name="class_id" id="class_id" value="" class="form-input">
                             </div>

@@ -35,32 +35,55 @@
                                                             @endif
                                                         </h6>
                                                         <div class="d-flex align-items-end">
+                                                            <h5>
+                                                                IDR
+                                                                <s>
+                                                                    @if ($item->id === 1)
+                                                                        <span>450.000</span>
+                                                                    @endif
+                                                                    @if ($item->id === 2)
+                                                                        <span>2.499.000</span>
+                                                                    @endif
+                                                                    @if ($item->id === 3)
+                                                                        <span>900.000</span>
+                                                                    @endif
+                                                                </s>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="d-flex align-items-end">
                                                             <h3>IDR {{ number_format($item->price) }}</h3>
                                                             <span></span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <p>From its medieval origins to the digital era, learn everything there.
+                                                <p>
+                                                    @if ($item->id === 1)
+                                                        <span>Tidak sampai Rp 120 per hari!</span>
+                                                    @endif
+                                                    @if ($item->id === 2)
+                                                        <span>Paling Diminati! Paling worth it!</span>
+                                                    @endif
+                                                    @if ($item->id === 3)
+                                                        <span>Tidak sampai Rp 300 per hari</span>
+                                                    @endif
                                                 </p>
-                                                <ul class="plan-list">
-                                                    <li>
-                                                        <i class="fa-solid fa-check"></i>
-                                                        <p class="txt-light">Get started with <span>messaging</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa-solid fa-check"></i>
-                                                        <p class="txt-light">Flexible <span>team meetings</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fa-solid fa-check"></i>
-                                                        <p class="txt-light"><span>5 TB</span> cloud storage</p>
-                                                    </li>
-                                                </ul>
-                                                <button href="#" class="btn btn-light-primary"
+                                                @if (count($item->feature) > 0)
+                                                    <ul class="plan-list">
+                                                        @foreach ($item->feature as $feature)
+                                                            <li>
+                                                                <i
+                                                                    class="fa-solid {{ $feature->status ? 'fa-check' : 'fa-times text-danger' }}"></i>
+                                                                <p class="txt-light">{{ $feature->label }}</span>
+                                                                </p>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
+                                                <a href="#!" class="btn btn-light-primary"
                                                     onclick="setBasicClassDuration({{ $item->duration }})">
                                                     Choose Plan
                                                     <i class="fa-solid fa-arrow-right"></i>
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -89,8 +112,8 @@
                                         <img src="../assets/images/sass/icons/1.webp" alt="vector icon">
                                     </div>
                                     <div>
-                                        <h3>Appointments</h3>
-                                        <p>Many desktop publican packages and web page editors now use for them.</p>
+                                        <h3>Pilih Paket</h3>
+                                        <p>Pilih paket durasi yang sesuai dengan keinginanmu!</p>
                                     </div>
                                 </div>
                             </li>
@@ -100,8 +123,8 @@
                                         <img src="../assets/images/sass/icons/2.webp" alt="vector icon">
                                     </div>
                                     <div>
-                                        <h3>Class Bookings</h3>
-                                        <p>Reporting & Omni-channel Solution To Empower Your Agents</p>
+                                        <h3>Pembayaran</h3>
+                                        <p>Transfer hanya ke nomor tertera dan screenshot / simpan bukti pembayaran</p>
                                     </div>
                                 </div>
                             </li>
@@ -111,8 +134,8 @@
                                         <img src="../assets/images/sass/icons/3.webp" alt="vector icon">
                                     </div>
                                     <div>
-                                        <h3>Fast Support</h3>
-                                        <p>We Are Here To Help You Find A Solution That Suits Your Business Need.</p>
+                                        <h3>Konfirmasi</h3>
+                                        <p>Isi data diri dan bukti pembayaran untuk mendapatkan akses. Jika ada kendala, klik tombol whatsapp untuk dibantu admin ya..</p>
                                     </div>
                                 </div>
                             </li>
@@ -129,6 +152,7 @@
                                         <h3>Payment Information</h3>
                                         <p>Please send your payment only to this account number</p>
                                         <p><b>DANA/OVO: 081264346755</b></p>
+                                        <p><b>Indah Permata Santana</b></p>
                                     </div>
                                 </div>
                             </li>
@@ -166,7 +190,7 @@
                                     alt="Preview Image">
                                 <br />
                                 <div class="form-input">
-                                    <label for="" class="form-label">Payment Evidence</label>
+                                    <label for="" class="form-label">Masukan Bukti Pembayaran</label>
                                     <div class="mb-3">
                                         <input required name="payment_image" onchange="previewImage(event)"
                                             accept="image/png, image/jpeg, image/webp" class="form-control"

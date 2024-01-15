@@ -13,7 +13,7 @@
         @if (Auth::user()->basic_waiting_approved)
             <div class="row mb-10 mt-5">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>You have subscribed!</strong> 
+                    <strong>You have subscribed!</strong>
                     <span>But your subscribtion status is pending, please contact Admin to reconfirm your payment</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -86,10 +86,11 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="title-style-1 text-center">
-                                <h5>Choose from our affordable 3 packages!</h5>
-                                <h2>Make the wise decision for your career</h2>
-                                <p>Whether it’s for work, a side project or even the next family vacation, we helps your
-                                    team stay organize</p>
+                                <h2>Materi Kelas Basic Di Maxel</h2>
+                                <p>Cocok untuk pemula dan yang ingin memperluas skill digital ! Dapatkan akses ke
+                                    ratusan materi skill digital dasar. Mulai langkah Anda ke dunia digital sekarang!
+                                </p>
+                                {{-- <img src="../assets/images/nft/line.webp" alt="line" class="img-fluid"> --}}
                             </div>
                         </div>
                     </div>
@@ -107,7 +108,7 @@
                                             height="300px" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h6 class="card-title">{{ $class->title }}</h6>
-                                            <small>{{$class->subtitle}}</small>
+                                            <small>{{ $class->subtitle }}</small>
                                             {{-- <p class="card-text">{!! $class->description !!}</p> --}}
                                             {{-- <a href="#" class="btn btn-block {{ $class->your_class ? 'btn-success' : 'btn-warning' }} mt-3">{{ $class->your_class ? 'Go to Class' : 'Buy Class' }}</a> --}}
                                         </div>
@@ -133,9 +134,7 @@
     </div>
 </section>
 
-@if (!Auth::user()->basic_user && !Auth::user()->basic_waiting_approved)
+@if (Auth::user()->basic_user && !Auth::user()->basic_waiting_approved)
     @component('Components.BasicClassPriceList.index', compact('pricelist'))
     @endcomponent
 @endif
-
-

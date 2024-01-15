@@ -35,7 +35,7 @@
                                                         </h6>
                                                         <div class="d-flex align-items-end">
                                                             <h5>
-                                                                IDR 
+                                                                IDR
                                                                 <s>
                                                                     @if ($item->id === 1)
                                                                         <span>450.000</span>
@@ -55,14 +55,24 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <p>From its medieval origins to the digital era, learn everything there.
+                                                <p>
+                                                    @if ($item->id === 1)
+                                                        <span>Tidak sampai Rp 120 per hari!</span>
+                                                    @endif
+                                                    @if ($item->id === 2)
+                                                        <span>Paling Diminati! Paling worth it!</span>
+                                                    @endif
+                                                    @if ($item->id === 3)
+                                                        <span>Tidak sampai Rp 300 per hari</span>
+                                                    @endif
                                                 </p>
                                                 @if (count($item->feature) > 0)
                                                     <ul class="plan-list">
                                                         @foreach ($item->feature as $feature)
                                                             <li>
-                                                                <i class="fa-solid {{$feature->status ? 'fa-check' : 'fa-times text-danger'}}"></i>
-                                                                <p class="txt-light">{{$feature->label}}</span>
+                                                                <i
+                                                                    class="fa-solid {{ $feature->status ? 'fa-check' : 'fa-times text-danger' }}"></i>
+                                                                <p class="txt-light">{{ $feature->label }}</span>
                                                                 </p>
                                                             </li>
                                                         @endforeach

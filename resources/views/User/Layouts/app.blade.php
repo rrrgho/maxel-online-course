@@ -32,7 +32,7 @@
 
     @endcomponent --}}
         <div class="whatsapp-floating">
-            <a href="https://wa.me/+628123456789/?text=Hi,MaxelCourse" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/+6281380004668/?text=Hi,MaxelCourse" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-whatsapp text-white" style="font-size: 70px"></i>
             </a>
         </div>

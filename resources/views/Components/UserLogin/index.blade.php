@@ -4,7 +4,7 @@
         <div class="title-style-4 row">
             <div class="col-md-12 text-center">
                 <h2>Join Our<span class="txt-success"> Creative Community</span></h2>
-                <p>Sign in to access or your premium class, gain more benefit by upgrading your class category</p>
+                {{-- <p>Sign in to access or your premium class, gain more benefit by upgrading your class category</p> --}}
                 <img src="../assets/images/nft/line.webp" alt="line" class="img-fluid">
             </div>
         </div>
@@ -13,7 +13,7 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-sm-12 col-md-7">
                     <h3 class="text-dark">Please Login !</h3>
-                    <p>Make sure you have purchased class to login!</p>
+                    {{-- <p>Make sure you have purchased class to login!</p> --}}
                 </div>
                 <div class="col-sm-12 col-md-7 mt-3">
                     <input type="email" name="email" class="form-control bg-light text-dark" placeholder="Email" aria-label="Email"
