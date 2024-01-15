@@ -91,7 +91,7 @@
                                 <div class="home-details">
                                     <ul>
                                         <li>
-                                            <a target="_blank" href="https://wa.me/+628123456789/?text=Hi,MaxelCourse" class="input-group-text btn-success text-white" id="basic-addon2">
+                                            <a target="_blank" href="https://wa.me/+6281380004668/?text=Hi,MaxelCourse" class="input-group-text btn-success text-white" id="basic-addon2">
                                                 <i class="fa-brands fa-whatsapp me-3 text-white"></i>
                                                 Whatsapp
                                                 <i class="fa-solid fa-arrow-right ms-2"></i></a>
