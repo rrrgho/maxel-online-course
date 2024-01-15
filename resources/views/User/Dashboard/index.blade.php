@@ -71,14 +71,14 @@
                                                 <svg>
                                                     <use href="../assets/svg/icon_sprite.svg#stroke-apply"></use>
                                                 </svg>
-                                                <h3>Get Leassons</h3>
+                                                <h3>Get Lessons</h3>
                                             </div>
                                         </div>
                                         <img class="bg-shape" src="../assets/images/job/work/shape/4.webp" alt="shape">
                                     </div>
                                     <div class="step-content">
                                         <span class="badge badge-light-4">Step 3</span>
-                                        <p class="txt-light">Enjoy your leasson joyfully</p>
+                                        <p class="txt-light">Enjoy your lesson joyfully</p>
                                     </div>
                                 </div>
                             </div>

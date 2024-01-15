@@ -134,7 +134,7 @@
     </div>
 </section>
 
-@if (Auth::user()->basic_user && !Auth::user()->basic_waiting_approved)
+@if (!Auth::user()->basic_user && !Auth::user()->basic_waiting_approved)
     @component('Components.BasicClassPriceList.index', compact('pricelist'))
     @endcomponent
 @endif

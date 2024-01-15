@@ -12,7 +12,7 @@
     <div class="row justify-content-end">
         <div class="col-sm-12 col-md-3">
             <button class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#addLeassonModal">Add
-                Leassons</button>
+                Lassons</button>
         </div>
         <div class="col-sm-12 col-md-3">
             <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#editClassModal">Edit Class</button>
