@@ -34,7 +34,7 @@
                                     <a class="btn btn-success mt-3 btn-large w-100"
                                         href="{{ url('/user/leasson/' . $data->id . '/' . $data->class_leassons_relation[0]->id) }}">Go
                                         to
-                                        Leasson List</a>
+                                        Lesson List</a>
                                 </div>
                             @endif
                         @else
@@ -73,7 +73,7 @@
                                         <a class="btn btn-success mt-3 btn-large w-100"
                                             href="{{ url('/user/leasson/' . $data->id . '/' . $data->class_leassons_relation[0]->id) }}">Go
                                             to
-                                            Leasson List</a>
+                                            Lesson List</a>
                                     </div>
                                 @endif
                             @else

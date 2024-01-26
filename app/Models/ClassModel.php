@@ -22,7 +22,7 @@ class ClassModel extends Model
 
     public function class_leassons_relation()
     {
-        return $this->hasMany(ClassLeasson::class, 'class_id', 'id');
+        return $this->hasMany(ClassLeasson::class, 'class_id', 'id')->orderBy('created_at', 'ASC');
     }
 
     public function class_category_relation()
