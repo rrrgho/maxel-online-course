@@ -149,9 +149,10 @@
                                     </div>
                                     <div>
                                         <h3>Payment Information</h3>
-                                        <p>Please send your payment only to this account number</p>
+                                        <b>Payment should only be confirmed via Whatsapp.</b> <br>
+                                        {{-- <p>Please send your payment only to this account number</p>
                                         <p><b>DANA/OVO: 081264346755</b></p>
-                                        <p><b>Indah Permata Santana</b></p>
+                                        <p><b>Indah Permata Santana</b></p> --}}
                                     </div>
                                 </div>
                             </li>

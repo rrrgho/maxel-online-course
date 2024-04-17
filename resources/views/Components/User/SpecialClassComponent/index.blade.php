@@ -92,9 +92,9 @@
                 <div class="modal-header">
 
                     <div class="col-12">
-                        <b>Payment should only be transfered to this bank account</b> <br>
-                        <small><p><b>DANA/OVO: 081264346755</b></p></small> <br>
-                        <small><p><b> Indah Permata Santana</b></p></small> <br>
+                        <b>Payment should only be confirmed via Whatsapp.</b> <br>
+                        {{-- <small><p><b>DANA/OVO: 081264346755</b></p></small> <br>
+                        <small><p><b> Indah Permata Santana</b></p></small> <br> --}}
 
                         {{-- <small>a.n. Maxel Course</small> --}}
                     </div>
